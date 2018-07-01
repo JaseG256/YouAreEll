@@ -65,6 +65,12 @@ public class SimpleShell {
                     continue;
                 }
 
+                if (list.contains("send")) {
+                    String results = webber.post_id(commands[1], commands[2]);
+                    SimpleShell.prettyPrint(results);
+                    continue;
+                }
+
                 // messages
                 if (list.contains("messages")) {
                     String results = webber.get_messages();
@@ -73,6 +79,28 @@ public class SimpleShell {
                 }
                 // you need to add a bunch more.
 
+                if (list.contains("messages github")) {
+                    String results = webber.getMyMessages(commands[2]);
+                    SimpleShell.prettyPrint(results);
+                    continue;
+                }
+
+                if (list.contains("send github")) {
+                    String messageToAll = null;
+                    for (int i = 3; i < commands.length - 1; i++) {
+                        messageToAll += commands[i] + " ";
+                    }
+
+                    String results = webber.postMessageToAll(commands[2], messageToAll );
+                    SimpleShell.prettyPrint(results);
+                    continue;
+                }
+
+                if (list.contains("send github to github")) {
+                    String results = webber.postMessageToFriend(commands[1], commands[3], commands[2]);
+                    SimpleShell.prettyPrint(results);
+                    continue;
+                }
                 //!! command returns the last command in history
                 if (list.get(list.size() - 1).equals("!!")) {
                     pb.command(history.get(history.size() - 2));
@@ -103,10 +131,11 @@ public class SimpleShell {
 
             }
 
-            //catch ioexception, output appropriate message, resume waiting for input
-            catch (IOException e) {
+            catch (ArrayIndexOutOfBoundsException | IOException e) {
                 System.out.println("Input Error, Please try again!");
             }
+            //catch ioexception, output appropriate message, resume waiting for input
+
             // So what, do you suppose, is the meaning of this comment?
             /** The steps are:
              * 1. parse the input to obtain the command and any parameters
