@@ -16,7 +16,7 @@ public class IdController extends Controller<IDs>{
      IDs iDs;
 
 
-    public String getAllIDs(String resource) throws IOException{
+    public String getAllIDs(String resource) throws IOException {
         responseBody = get(resource);
         return unpackIDs(responseBody);
     }

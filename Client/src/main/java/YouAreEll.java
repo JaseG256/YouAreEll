@@ -21,10 +21,11 @@ public class YouAreEll {
 //        System.out.println(urlhandler.MakeURLCall("/ids", "GET", ""));
 //        System.out.println(urlhandler.MakeURLCall("/messages", "GET", ""));
 //        System.out.println(urlhandler.idController.getAllIDs("/ids"));
-        System.out.println(urlhandler.messageController.getMyMessages("/ids/The King of Lambdas/messages/"));
+//        System.out.println(urlhandler.messageController.getMyMessages("/ids/The King of Lambdas/messages/"));
 //        System.out.println(urlhandler.messageController.postMessageToAll("/messages","The King of Lambdas",
 //                "rayskeez21", "The lambdagod strikes again!"));
 //        System.out.println(urlhandler.idController.postID("/ids", "Jason", "The King of Lambdas"));
+        System.out.println(urlhandler.idController.getAllIDs("/ids"));
 
     }
 

@@ -11,6 +11,8 @@ public class IDs extends Model{
         this.github = github;
     }
 
+    public IDs() { }
+
     public String getUserid() { return userid; }
 
     public void setUserid(String userId) {
